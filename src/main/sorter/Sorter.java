@@ -4,31 +4,18 @@ import java.util.List;
 
 public class Sorter {
     public List<Integer> sortList(List<Integer> unsortedList) {
-        int currentIndex = 0;
-        Integer nextNumber = unsortedList.get(1);
 
-        for (Integer currentElement : unsortedList) {
-            int swapCounter = 1;
+        for (int i = 0; i < unsortedList.size() - 1; i++) {
 
-            while (swapCounter > 0 && currentIndex < unsortedList.size() - 1) {
-                swapCounter = 0;
+            if (unsortedList.get(i) > unsortedList.get(i + 1)) {
 
-                if (currentElement > nextNumber) {
-                    unsortedList.set(currentIndex, nextNumber);
-                    unsortedList.set(currentIndex += 1, currentElement);
-
-                    nextNumber = unsortedList.get(nextNumber);
-                    swapCounter++;
-                } else {
-                    swapCounter = 0;
-                }
-
-                if (currentElement > nextNumber) {
-                    sortList(unsortedList);
-                }
+                int currentValue = unsortedList.get(i);
+                unsortedList.set(i, unsortedList.get(i + 1));
+                unsortedList.set(i + 1, currentValue);
+            } else {
+                return unsortedList;
             }
         }
-
         return unsortedList;
     }
 }
