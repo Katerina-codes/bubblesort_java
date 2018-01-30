@@ -27,4 +27,13 @@ public class SorterTest {
         Sorter sorter = new Sorter();
         assertEquals(sortedList, sorter.sortList(unsortedList));
     }
+
+    @Test
+    public void sortsListOfFourNumbers() {
+        List<Integer> unsortedList = asList(3, 2, 1, 4);
+        List<Integer> sortedList = asList(1, 2, 3, 4);
+
+        Sorter sorter = new Sorter();
+        assertEquals(sortedList, sorter.sortList(unsortedList));
+    }
 }
